@@ -12,6 +12,19 @@ class Currency extends Component {
       }
     
       componentDidMount() {
+
+        const today = new Date();
+        const yesterday = new Date();
+        yesterday.setDate(today.getDate() - 1);
+        const day = today.getDate();
+        const month = today.getMonth()+1; //January is 0!
+        const year = today.getFullYear();
+        console.log('today',today);
+        console.log('yesterday',yesterday);
+        // history?start_at=2018-01-01&end_at=2019-09-01&symbols=KRW,JPY
+
+        
+
         fetch("https://api.exchangeratesapi.io/latest?symbols=JPY,KRW")
           .then(res => res.json())
           .then(
